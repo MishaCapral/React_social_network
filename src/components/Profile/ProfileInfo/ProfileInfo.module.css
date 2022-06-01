@@ -1,0 +1,17 @@
+.avatar{
+  width: 100px;
+  border-radius: 50%;
+  border: 5px solid var( --mainBlue)
+}
+.personalInfo{
+  padding-left: 15px;
+}
+.profileInfo{
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+}
+.userDescription{
+  font-size: 12px;
+  margin: 3px;
+}
