@@ -1,3 +1,8 @@
+:root{
+ --mainBlue: rgb(58 163 207);
+ --mainGray: rgb(248, 244, 244);
+}
+
 /* Grid skeleton */
 .app-wrapper{
   margin: 0 auto;
@@ -28,3 +33,5 @@ grid-area: c;
   -webkit-box-shadow: -1px 0px 7px 5px rgba(0,0,0,0.09); 
   box-shadow: -1px 0px 7px 5px rgba(0,0,0,0.09);
   }
+
+  /* 'rgb(58 163 207)'*/
