@@ -3,7 +3,7 @@ import MyPosts from './MyPosts/MyPosts';
 import ProfileHead from './ProfileHead/ProfileHead';
 
 const Profile = () => {
-  return  <div className='content borderBox'> 
+  return  <div> 
   <ProfileHead />
   <div>ava + desc</div>
   <MyPosts />
