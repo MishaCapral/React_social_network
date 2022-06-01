@@ -11,7 +11,7 @@ const MyPosts = () => {
 
     <Post message='Hello, world!!!'/>
     <Post message='This is first step in react'/>
-    <Post message='Abracadabra'/>
+    <Post message='Hello busanchik!'/>
 </div>
 }
 export default MyPosts;
