@@ -1,0 +1,12 @@
+.post{
+  border-bottom: 1px solid black;
+  margin: 20px;
+}
+.avatar{
+  width: 60px;
+  border-radius: 50%;
+}
+.message{
+  padding-left: 10px;
+  display: inline-block;
+}

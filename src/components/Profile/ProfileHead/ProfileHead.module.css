@@ -1,0 +1,23 @@
+.head{
+  height: 220px;
+  background: url('https://images.prom.ua/2877113385_w640_h640_asfalt-v-10asfaltobeton-melkozernistyj.jpg');
+  display: flex;
+  border-radius: 5px;
+}
+.head_wrapper{
+  width: 100%;
+  height: 100%;
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 4%, rgba(0,0,0,0.41530115464154416) 100%);
+  border-radius: 5px 5px 0px 0px;
+}
+.banner{
+  padding-top: 40px;
+  text-align: center;
+  color: #fff;
+ /* -webkit-text-stroke: 0.7px #000000*/
+}
+.banner h3{
+  color:#000000;
+ /* -webkit-text-stroke: 0.7px #ffffff*/
+}

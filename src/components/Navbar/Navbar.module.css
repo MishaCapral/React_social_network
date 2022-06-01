@@ -1,0 +1,15 @@
+.item{
+  padding: 7px;
+  padding-left: 20px;
+ 
+} 
+.item a{
+  display: block;  
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+.item:hover{
+  background-color: rgb(220, 220, 220);
+  border-radius: 5px;
+}
