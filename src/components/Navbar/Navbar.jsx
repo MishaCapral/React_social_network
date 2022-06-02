@@ -13,7 +13,7 @@ const Navbar = ()=> {
   <NavLink to='/news' style ={({ isActive}) => ({color: isActive ? 'var(--mainBlue)' : 'black'})}>News</NavLink>
   </div>
 
-<div className={style.item}><a href='#'>Music</a></div>
+{/* <div className={style.item}><a href='#'>Music</a></div> */}
 
 <div className={style.item}>
   <NavLink to='/settings' style ={({ isActive}) => ({color: isActive ? 'var(--mainBlue)' : 'black'})}>Settings</NavLink>
