@@ -2,8 +2,14 @@ import style from './Post.module.css'
 
 const Post = (props) => {
   return ( <div className={style.post}>
-    <img src='https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg' alt='avatar' className={style.avatar}></img>
-  <div className={style.message}>{props.message}</div>
+    <div className={style.odometr}>
+      <div className={style.mileage}>{props.mileage + ' km'}</div>
+      <div className={style.date}>{props.date}</div>
+    </div>
+    <div className={style.infoBlock}>
+      <div className={style.point}></div>
+      <div className={style.message}>{props.message}</div>
+    </div>
   </div>
   )
 }
