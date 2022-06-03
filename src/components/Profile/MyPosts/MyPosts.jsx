@@ -1,3 +1,4 @@
+import React from 'react'
 import style from './MyPosts.module.css'
 import Post from './Post/Post'
 
@@ -10,11 +11,17 @@ import Post from './Post/Post'
 
 const MyPosts = (props) => {
   let postsElement = props.posts.map( post => (<Post mileage={post.mileage} message={post.message} date={post.date}/>))
-  return  <div>my posts
 
+  let newPostElement = React.createRef();
+  let addMessage = () =>{
+    let textMessage = newPostElement.current.value;
+    props.addPost(textMessage); 
+   }
+    
+  return  <div>my posts
   <div>
-  <textarea></textarea>
-  <button>Add post</button>
+    <textarea ref={newPostElement}></textarea>
+    <button onClick={addMessage}>Add post</button>
   </div>
   {postsElement}
 </div>
