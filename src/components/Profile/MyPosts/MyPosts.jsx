@@ -13,14 +13,20 @@ const MyPosts = (props) => {
   let postsElement = props.posts.map( post => (<Post mileage={post.mileage} message={post.message} date={post.date}/>))
 
   let newPostElement = React.createRef();
+
   let addMessage = () =>{
-    let textMessage = newPostElement.current.value;
-    props.addPost(textMessage); 
+    props.addPost();
+    props.updateNewPostChange('');
+   }
+
+   let changeText = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostChange(text); 
    }
     
   return  <div>my posts
   <div>
-    <textarea ref={newPostElement}></textarea>
+    <textarea onChange={changeText} ref={newPostElement} />
     <button onClick={addMessage}>Add post</button>
   </div>
   {postsElement}

@@ -1,5 +1,6 @@
-import { rerenderEntireTree } from "../render"
+let rerenderEntireTree = () => {
 
+}
 
 /*data*/
 let state = {
@@ -9,6 +10,7 @@ let state = {
       { id: 2, message: 'Change oil in gear', mileage: 15000, date: 2021 },
       { id: 3, message: 'Install new car radio Blapunkt', mileage: 16500, date: 2022 },
     ],
+    newPostText: '',
   },
   messagesPage: {
     dialogs: [
@@ -29,15 +31,24 @@ let state = {
 
 }
 
-export let addPost = (textMessage) => {
+export let addPost = () => {
   let newPost = {
     id: state.profilePage.posts.id + 1,
-    message: textMessage,
+    message: state.profilePage.newPostText,
     mileage: 'Unknown',
     date: 'Unknown',
   }
-  state.profilePage.posts.push(newPost)
-  rerenderEntireTree(state)
+  state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
+  rerenderEntireTree(state);
+};
+
+export let updateNewPostChange = (changeText) => {
+  state.profilePage.newPostText = changeText;
+  rerenderEntireTree(state);
 }
 
+export let subscribe = (observer) => {
+  rerenderEntireTree = observer;
+}
 export default state;
