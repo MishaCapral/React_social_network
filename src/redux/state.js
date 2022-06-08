@@ -105,6 +105,24 @@ let store = {
   },
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: this._state.profilePage.posts.id + 1,
+        message: this._state.profilePage.newPostText,
+        mileage: 'Unknown',
+        date: 'Unknown',
+      }
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state);
+    }
+    else if (action.type === 'UPDATE-NEW-POST-CHANGE') {
+      this._state.profilePage.newPostText = action.changeText;
+      this._callSubscriber(this._state);
+    }
   }
+
 };
 export default store;

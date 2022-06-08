@@ -7,7 +7,7 @@ const Profile = (props) => {
   return  <div> 
   <ProfileHead />
   <ProfileInfo />
-  <MyPosts posts={props.posts} addPost={props.addPost} updateNewPostChange={props.updateNewPostChange} />
+  <MyPosts posts={props.posts} dispatch={props.dispatch}  />
 </div>
 }
 export default Profile;
