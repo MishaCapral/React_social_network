@@ -1,4 +1,5 @@
 import React from 'react'
+import { addPostActionCreator, updateNewPostChange, updateNewPostChangeActionCreator } from '../../../redux/state'
 import style from './MyPosts.module.css'
 import Post from './Post/Post'
 
@@ -10,23 +11,23 @@ import Post from './Post/Post'
 // ]
 
 const MyPosts = (props) => {
+
   let postsElement = props.posts.map( post => (<Post mileage={post.mileage} message={post.message} date={post.date}/>))
 
   let newPostElement = React.createRef();
 
   let addMessage = () =>{
-    props.dispatch({type: 'ADD-POST'});
-    //props.updateNewPostChange('');
+    props.dispatch(addPostActionCreator());
    }
 
    let changeText = () => {
     let text = newPostElement.current.value;
-    props.dispatch({type: 'UPDATE-NEW-POST-CHANGE', changeText: text }); 
+    props.dispatch(updateNewPostChangeActionCreator(text)); 
    }
     
   return  <div>my posts
   <div>
-    <textarea onChange={changeText} ref={newPostElement} />
+    <textarea placeholder='description...' onChange={changeText} ref={newPostElement} />
     <button onClick={addMessage}>Add post</button>
   </div>
   {postsElement}
