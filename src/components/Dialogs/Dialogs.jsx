@@ -27,7 +27,7 @@ return(
     <div className={style.messages}>
         <div>{messagesElements}</div>
         <div>
-          <div><textarea onChange={onNewMessageChange} value={newMessageBody}></textarea></div>
+          <div><textarea autoFocus placeholder='Enter message...' className={style.inputText} onChange={onNewMessageChange} value={newMessageBody}></textarea></div>
           <div><button onClick={onSendMessageClick}>Send</button></div>
         </div>
     </div>
