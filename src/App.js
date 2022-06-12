@@ -19,7 +19,7 @@ const App = (props) => {
         <Navbar />
         <div className='app-wrapper-content borderShadow'>
           <Routes>
-            <Route path='/profile' element={<Profile posts={props.state.profilePage.posts}
+            <Route path='/profile' element={<Profile posts={props.state.profilePage.posts} state={props.state}
               dispatch={props.dispatch} />} />
             <Route path='/dialogs' element={<Dialogs dialogs={props.state.messagesPage.dialogs} messages={props.state.messagesPage.messages} store={props.store} />} />
             <Route path='/news' element={<News />} />

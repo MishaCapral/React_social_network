@@ -3,31 +3,25 @@ import { addPostActionCreator, updateNewPostChange, updateNewPostChangeActionCre
 import style from './MyPosts.module.css'
 import Post from './Post/Post'
 
-// data
-// let posts = [
-//   {id:1,message:'Hello,world!',mileage:1000,date:2020},
-//   {id:2,message:'Change oil in gear',mileage:15000,date: 2021},
-//   {id:3,message:'Install new car radio Blapunkt',mileage:16500, date: 2022},
-// ]
-
 const MyPosts = (props) => {
 
   let postsElement = props.posts.map( post => (<Post mileage={post.mileage} message={post.message} date={post.date}/>))
 
-  let newPostElement = React.createRef();
-
+  let newPostText = props.state.profilePage.newPostText;
   let addMessage = () =>{
     props.dispatch(addPostActionCreator());
    }
 
-   let changeText = () => {
-    let text = newPostElement.current.value;
-    props.dispatch(updateNewPostChangeActionCreator(text)); 
+   let changeText = (e) => {
+      let text = e.target.value;
+      props.dispatch(updateNewPostChangeActionCreator(text)); 
    }
     
   return  <div>my posts
   <div>
-    <textarea placeholder='description...' onChange={changeText} ref={newPostElement} />
+    <div>
+    <textarea placeholder='description...' onChange={changeText} value={newPostText}></textarea>
+    </div>
     <button onClick={addMessage}>Add post</button>
   </div>
   {postsElement}

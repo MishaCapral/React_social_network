@@ -1,3 +1,6 @@
+import messagesReducer from "./messagesReducer";
+import profileReducer from "./profileReducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_CHANGE = 'UPDATE-NEW-POST-CHANGE';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
@@ -30,25 +33,10 @@ let store = {
       ],
       newMessageBody: '',
     },
-
+    //  -------------------------------------------------------------
   },
   getState() {
     return this._state
-  },
-  addPost() {
-    let newPost = {
-      id: this._state.profilePage.posts.id + 1,
-      message: this._state.profilePage.newPostText,
-      mileage: 'Unknown',
-      date: 'Unknown',
-    }
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscriber(this._state);
-  },
-  updateNewPostChange(changeText) {
-    this._state.profilePage.newPostText = changeText;
-    this._callSubscriber(this._state);
   },
   _callSubscriber() {
     console.log('subscribe (observer) is empty')
@@ -58,32 +46,39 @@ let store = {
   },
   //  --  Dispatch  --
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: this._state.profilePage.posts.id + 1,
-        message: this._state.profilePage.newPostText,
-        mileage: 'Unknown',
-        date: 'Unknown',
-      }
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_CHANGE) {
-      this._state.profilePage.newPostText = action.changeText;
-      this._callSubscriber(this._state);
 
-    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-      this._state.messagesPage.newMessageBody = action.body;
-      this._callSubscriber(this._state);
-    } else if (action.type === SEND_MESSAGE) {
-      let body = this._state.messagesPage.newMessageBody;
-      this._state.messagesPage.newMessageBody = '';
-      this._state.messagesPage.messages.push(
-        { id: this._state.messagesPage.messages.id + 1, message: body }
-      )
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
 
-      this._callSubscriber(this._state);
-    }
+    this._callSubscriber(this._state);//additional
+
+    // if (action.type === ADD_POST) {
+    //   let text = this._state.profilePage.newPostText
+    //   let newPost = {
+    //     id: this._state.profilePage.posts.id + 1,
+    //     message: text,
+    //     mileage: 'Unknown',
+    //     date: 'Unknown',
+    //   }
+    //   this._state.profilePage.posts.push(newPost);
+    //   this._state.profilePage.newPostText = '';
+    //   this._callSubscriber(this._state);
+    // } else if (action.type === UPDATE_NEW_POST_CHANGE) {
+    //   this._state.profilePage.newPostText = action.changeText;
+    //   this._callSubscriber(this._state);
+    // } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+    //   this._state.messagesPage.newMessageBody = action.body;
+    //   this._callSubscriber(this._state);
+    // } else if (action.type === SEND_MESSAGE) {
+    //   let body = this._state.messagesPage.newMessageBody;
+    //   let newMessage = {
+    //     id: this._state.messagesPage.messages.id + 1,
+    //     message: body,
+    //   }
+    //   this._state.messagesPage.messages.push(newMessage)
+    //   this._state.messagesPage.newMessageBody = '';
+    //   this._callSubscriber(this._state);
+    // }
   }
 
 };

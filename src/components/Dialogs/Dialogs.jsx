@@ -10,14 +10,14 @@ const Dialogs = (props) =>{
   let messagesElements = props.messages.map( message => ( <Message message={message.message} />))
   let newMessageBody = state.newMessageBody;
 
-  
+  let onSendMessageClick = () =>{
+    props.store.dispatch(sendMessageCreator());
+   }
   let onNewMessageChange = (e) => {
     let body = e.target.value;
     props.store.dispatch(updateMessageBodyCreator(body))
    }
-  let onSendMessageClick = () =>{
-    props.store.dispatch(sendMessageCreator());
-   }
+  
 
 return(
   <div className={style.dialogs}>
