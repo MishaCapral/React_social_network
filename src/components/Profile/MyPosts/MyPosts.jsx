@@ -1,5 +1,5 @@
 import React from 'react'
-import {addPost, updateNewPostText} from "./MyPostsContainer"
+//import {addPost, updateNewPostText} from "./MyPostsContainer"
 import style from './MyPosts.module.css'
 import Post from './Post/Post'
 

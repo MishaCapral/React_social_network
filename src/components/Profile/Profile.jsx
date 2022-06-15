@@ -8,7 +8,7 @@ const Profile = (props) => {
   return  <div> 
   <ProfileHead />
   <ProfileInfo />
-  <MyPostsContainer store={props.store} />
+  <MyPostsContainer /*store={props.store} *//>
 </div>
 }
 export default Profile;
