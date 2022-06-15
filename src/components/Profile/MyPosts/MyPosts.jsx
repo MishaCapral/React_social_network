@@ -1,5 +1,4 @@
 import React from 'react'
-//import { addPostActionCreator, updateNewPostChange, updateNewPostChangeActionCreator } from '../../../redux/store'
 import {addPost, updateNewPostText} from "./MyPostsContainer"
 import style from './MyPosts.module.css'
 import Post from './Post/Post'

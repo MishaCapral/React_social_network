@@ -1,20 +1,22 @@
 import React from 'react'
-import { addPostActionCreator, updateNewPostChange, updateNewPostChangeActionCreator } from '../../../redux/store'
+import { addPostActionCreator, updateNewPostChangeActionCreator } from '../../../redux/store'
 import MyPosts from './MyPosts'
-//import Post from './Post/Post'
 
 const MyPostsContainer = (props) => {
 
-  let newPostText = props.state.profilePage.newPostText;
+  let state = props.store.getState();
+
+  let newPostText = state.profilePage.newPostText;
+  let posts = state.profilePage.posts;
 
   let addMessage = () =>{
-    props.dispatch(addPostActionCreator());
+    props.store.dispatch(addPostActionCreator());
    }
 
    let changeText = (text) => {
-      props.dispatch(updateNewPostChangeActionCreator(text)); 
+      props.store.dispatch(updateNewPostChangeActionCreator(text)); 
    }
     
-  return  (<MyPosts updateNewPostText={changeText} addPost={addMessage} newPostText={newPostText} posts={props.posts} />)
+  return  (<MyPosts updateNewPostText={changeText} addPost={addMessage} newPostText={newPostText} posts={posts} />)
 }
 export default MyPostsContainer;
