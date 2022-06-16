@@ -21,20 +21,19 @@ let initialState = {
 
 const messagesReducer = (state = initialState, action) => {
   
-
   if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-    let stateCopy = {...state};
-    stateCopy.newMessageBody = action.body;
-    return stateCopy;
+    return{
+      ...state,
+      newMessageBody: action.body
+    };
+
   } else if (action.type === SEND_MESSAGE) {
     let body = state.newMessageBody;
-    state.newMessageBody = '';
-    let stateCopy = {...state};
-    stateCopy.messages = [...state.messages]
-    stateCopy.messages.push(
-      { id: state.messages.id + 1, message: body }
-    )
-      return stateCopy;
+    return {
+      ...state,
+      newMessageBody: '',
+      messages: [...state.messages, { id: state.messages.id + 1, message: body }]
+}
 }
 return state
 }

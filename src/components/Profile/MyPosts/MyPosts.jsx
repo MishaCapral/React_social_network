@@ -5,7 +5,7 @@ import Post from './Post/Post'
 
 const MyPosts = (props) => {
 
-  let postsElement = props.posts.map( post => (<Post mileage={post.mileage} message={post.message} date={post.date}/>))
+  let postsElement = props.posts.map( post => (<Post key={post.id} mileage={post.mileage} message={post.message} date={post.date}/>))
 
   let onNewPostText = props.newPostText;
 
