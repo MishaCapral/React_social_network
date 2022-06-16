@@ -22,7 +22,7 @@ import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
   return {
-    MessageBody: state.newMessageBody,
+    newMessageBody: state.newMessageBody,
     messagesPage: state.messagesPage
   }
 }

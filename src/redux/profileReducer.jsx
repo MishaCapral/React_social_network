@@ -20,10 +20,15 @@ const profileReducer = (state = initialState, action) =>{
         mileage: 'Unknown',
         date: 'Unknown',
       };
-      state.posts.push(newPost);
-      state.newPostText = '';
+      let stateCopy = {...state};
+      stateCopy.posts = [...state.posts]
+      stateCopy.posts.push(newPost);
+      stateCopy.newPostText = '';
+      return stateCopy;
     } else if (action.type === UPDATE_NEW_POST_CHANGE) {
-      state.newPostText = action.changeText;
+      let stateCopy = {...state};
+      stateCopy.newPostText = action.changeText;
+      return stateCopy;
     } 
     
   return state
