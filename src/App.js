@@ -7,6 +7,7 @@ import DialogsContiner from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
 import Settings from './components/SettingsProfile/Settings';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import UsersContainer from './components/Users/UsersContainer';
 
 
 
@@ -21,6 +22,7 @@ const App = (props) => {
           <Routes>
             <Route path='/profile' element={<Profile />} />
             <Route path='/dialogs' element={<DialogsContiner />} />
+            <Route path='/users' element={<UsersContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/settings' element={<Settings />} />
           </Routes>

@@ -13,7 +13,7 @@ let initialState = {
 const profileReducer = (state = initialState, action) =>{
   
     if (action.type === ADD_POST){
-    let text = state.newPostText
+    /*let text = state.newPostText
       let newPost = {
         id: state.posts.id + 1,
         message: text,
@@ -24,14 +24,36 @@ const profileReducer = (state = initialState, action) =>{
       stateCopy.posts = [...state.posts]
       stateCopy.posts.push(newPost);
       stateCopy.newPostText = '';
-      return stateCopy;
+      return stateCopy;*/
+
+      let text = state.newPostText;
+      let newPost = {
+        id: state.posts.id + 1,
+        message: text,
+        mileage: 'Unknown',
+        date: 'Unknown',
+      };
+      return {
+        ...state,
+        posts: [...state.posts, newPost],
+        newPostText: ''
+
+      }
+
     } else if (action.type === UPDATE_NEW_POST_CHANGE) {
-      let stateCopy = {...state};
+      /*let stateCopy = {...state};
       stateCopy.newPostText = action.changeText;
-      return stateCopy;
+      return stateCopy;*/
+      return {
+        ...state,
+        newPostText: action.changeText
+      }
     } 
     
   return state
 }
+
+export const addPostActionCreator = () => ({ type: ADD_POST })
+export const updateNewPostChangeActionCreator = (text) => ({ type: UPDATE_NEW_POST_CHANGE, changeText: text })
 
 export default profileReducer;
