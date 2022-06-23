@@ -84,9 +84,9 @@ let store = {
 };
 
 //  --  Action Creator  --
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const updateNewPostChangeActionCreator = (text) => ({ type: UPDATE_NEW_POST_CHANGE, changeText: text })
+// export const addPostActionCreator = () => ({ type: ADD_POST })
+// export const updateNewPostChangeActionCreator = (text) => ({ type: UPDATE_NEW_POST_CHANGE, changeText: text })
 
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
-export const updateMessageBodyCreator = (body) => ({ type: UPDATE_NEW_MESSAGE_BODY, body: body })
-export default store;
+// export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
+// export const updateMessageBodyCreator = (body) => ({ type: UPDATE_NEW_MESSAGE_BODY, body: body })
+// export default store;

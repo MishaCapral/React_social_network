@@ -4,10 +4,10 @@ const SET_USERS = 'SET_USERS';
 
 let initialState = {
   users: [
-    { id: 1, followed: true, photoUrl:'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Head.cj.jpg/274px-Head.cj.jpg', fullName: 'Dmitry', status: 'I am big boy', location: { city: 'Zhytomyr', country: 'Ukraine' } },
-    { id: 2, followed: true, photoUrl:'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Head.cj.jpg/274px-Head.cj.jpg', fullName: 'Taras', status: 'I am big boy', location: { city: 'Kyiv', country: 'Ukraine' } },
-    { id: 3, followed: false, photoUrl:'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Head.cj.jpg/274px-Head.cj.jpg', fullName: 'Peter', status: 'I am big boy', location: { city: 'Lviv', country: 'Ukraine' } },
-    { id: 4, followed: false, photoUrl:'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Head.cj.jpg/274px-Head.cj.jpg', fullName: 'Oleg', status: 'I am big boy', location: { city: 'Rivne', country: 'Ukraine' } },
+    { id: 1, followed: true, photoUrl: 'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Head.cj.jpg/274px-Head.cj.jpg', fullName: 'Dmitry', status: 'I am big boy', location: { city: 'Zhytomyr', country: 'Ukraine' } },
+    { id: 2, followed: true, photoUrl: 'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Head.cj.jpg/274px-Head.cj.jpg', fullName: 'Taras', status: 'I am big boy', location: { city: 'Kyiv', country: 'Ukraine' } },
+    { id: 3, followed: false, photoUrl: 'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Head.cj.jpg/274px-Head.cj.jpg', fullName: 'Peter', status: 'I am big boy', location: { city: 'Lviv', country: 'Ukraine' } },
+    { id: 4, followed: false, photoUrl: 'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Head.cj.jpg/274px-Head.cj.jpg', fullName: 'Oleg', status: 'I am big boy', location: { city: 'Rivne', country: 'Ukraine' } },
   ],
 };
 
@@ -51,6 +51,6 @@ const usersReducer = (state = initialState, action) => {
 /*  Action Creator  */
 export const followActionCreator = (userId) => ({ type: FOLLOW, userId })
 export const unfollowActionCreator = (userId) => ({ type: UNFOLLOW, userId })
-export const setUsersctionCreator = (users) => ({ type: SET_USERS, users })
+export const setUsersActionCreator = (users) => ({ type: SET_USERS, users })
 
 export default usersReducer;
