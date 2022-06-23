@@ -7,6 +7,9 @@ const Navbar = ()=> {
   <NavLink to='/profile' style ={({ isActive}) => ({color: isActive ? 'var(--mainBlue)' : 'black'})}>Profile</NavLink>
   </div>
 <div className={style.item}>
+  <NavLink to='/users' style ={({ isActive}) => ({color: isActive ? 'var(--mainBlue)' : 'black'})}>Users</NavLink>
+  </div>
+<div className={style.item}>
   <NavLink to='/dialogs' style ={({ isActive}) => ({color: isActive ? 'var(--mainBlue)' : 'black'})}>Messages</NavLink>
   </div>
 <div className={style.item}>
