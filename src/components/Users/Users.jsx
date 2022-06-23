@@ -4,16 +4,14 @@ import userAvatar from '../../Assets/Images/avatar.jpg'
 import style from './Users.module.css'
 
 class Users extends React.Component{
-constructor(props){
-  super(props);
-    if(this.props.users.length === 0){
-      axios.get('https://social-network.samuraijs.com/api/1.0/users')
-      .then(response => {
-        this.props.setUsers(response.data.items)
-      });
+componentDidMount(){
+  if(this.props.users.length === 0){
+    axios.get('https://social-network.samuraijs.com/api/1.0/users')
+    .then(response => {
+      this.props.setUsers(response.data.items)
+    });
 }
 }
- 
   // props.setUsers(
   //   [
   //     { id: 1, followed: true, photoUrl: 'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Head.cj.jpg/274px-Head.cj.jpg', fullName: 'Dmitry', status: 'I am big boy', location: { city: 'Zhytomyr', country: 'Ukraine' } },
