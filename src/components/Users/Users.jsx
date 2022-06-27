@@ -9,7 +9,7 @@ let Users = (props) => {
         if(i === 10) break
       }
 
- return <div>
+ return <div className='wrapper'>
 <div> {pages.map( p => {
   return <span className={props.currentPage === p ? style.selectedPage :''} onClick={() => props.onPageChanged(p) }>{p}</span>})}
 
