@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { followActionCreator, unfollowActionCreator, setUsersActionCreator, setCurrentPageActionCreator,setUsersTotalCountActionCreator,setIsFetchingActionCreator } from "../../redux/usersReducer";
+import { follow, unfollow, setUsers, setCurrentPage,setUsersTotalCount,setIsFetching } from "../../redux/usersReducer";
 import * as axios from 'axios'
 import Users from './Users'
 import Preloader from '../Common/Preloader';
@@ -13,22 +13,22 @@ const wrapper = {
 class UsersAPIComponent extends React.Component{
   componentDidMount(){
     if(this.props.users.length === 0){
-      this.props.setIsFetchingActionCreator(true)
+      this.props.setIsFetching(true)
       axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
       .then(response => {
         this.props.setUsers(response.data.items);
         this.props.setUsersTotalCount(response.data.totalCount);
-        this.props.setIsFetchingActionCreator(false);
+        this.props.setIsFetching(false);
       });
   }
   }
   onPageChanged = (page) => {
-    this.props.setIsFetchingActionCreator(true);
+    this.props.setIsFetching(true);
     this.props.setCurrentPage(page);
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${page}`)
       .then(response => {
         this.props.setUsers(response.data.items)
-        this.props.setIsFetchingActionCreator(false);
+        this.props.setIsFetching(false);
       });
   
   }
@@ -57,27 +57,29 @@ let mapStateToProps = (state) => {
     isFeatching: state.usersPage.isFeatching
   }
 }
-let mapDispatchToProps = (dispatch) => {
-  return{
-    follow: (userId) => {
-      dispatch(followActionCreator(userId))
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowActionCreator(userId))
-    },
-    setUsers: (users) => {
-      dispatch(setUsersActionCreator(users))
-    },
-    setCurrentPage: (page) => {
-      dispatch(setCurrentPageActionCreator(page))
-    },
-    setUsersTotalCount: (totalUsersCount) => {
-      dispatch(setUsersTotalCountActionCreator(totalUsersCount))
-    },
-    setIsFetchingActionCreator: (isFeatching) => {
-      dispatch(setIsFetchingActionCreator(isFeatching))
-    }
-}
-}
+// let mapDispatchToProps = (dispatch) => {
+//   return{
+//     follow: (userId) => {
+//       dispatch(followActionCreator(userId))
+//     },
+//     unfollow: (userId) => {
+//       dispatch(unfollowActionCreator(userId))
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsersActionCreator(users))
+//     },
+//     setCurrentPage: (page) => {
+//       dispatch(setCurrentPageActionCreator(page))
+//     },
+//     setUsersTotalCount: (totalUsersCount) => {
+//       dispatch(setUsersTotalCountActionCreator(totalUsersCount))
+//     },
+//     setIsFetchingActionCreator: (isFeatching) => {
+//       dispatch(setIsFetchingActionCreator(isFeatching))
+//     }
+// }
+//}
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
+export default connect(mapStateToProps, {
+  follow, unfollow, setUsers, setCurrentPage, setUsersTotalCount, setIsFetching}
+  )(UsersAPIComponent)
