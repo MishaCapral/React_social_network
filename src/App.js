@@ -2,12 +2,12 @@
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
 import DialogsContiner from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
 import Settings from './components/SettingsProfile/Settings';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UsersContainer from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfleContainer';
 
 
 
@@ -20,7 +20,7 @@ const App = (props) => {
         <Navbar />
         <div className='app-wrapper-content borderShadow'>
           <Routes>
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile' element={<ProfileContainer />} />
             <Route path='/dialogs' element={<DialogsContiner />} />
             <Route path='/users' element={<UsersContainer />} />
             <Route path='/news' element={<News />} />

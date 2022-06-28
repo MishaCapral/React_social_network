@@ -1,0 +1,7 @@
+.profile_wrapper{
+  position: relative;
+}
+.profile_info_wrapper{
+  position: relative;
+  top: -90px;
+}
