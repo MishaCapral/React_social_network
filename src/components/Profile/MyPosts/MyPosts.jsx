@@ -4,7 +4,7 @@ import style from './MyPosts.module.css'
 import Post from './Post/Post'
 
 const MyPosts = (props) => {
-
+//const {id,milage,message,date} = props ?? {}
   let postsElement = props.posts.map( post => (<Post key={post.id} mileage={post.mileage} message={post.message} date={post.date}/>))
 
   let onNewPostText = props.newPostText;
