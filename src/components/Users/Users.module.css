@@ -1,12 +1,21 @@
-.avatar{
+.avatar {
   width: 100px;
   border-radius: 50%;
-  border: 5px solid var( --mainBlue)
+  border: 5px solid var(--mainBlue);
 }
-.selectedPage{
+.selectedPage {
   color: red;
   font-weight: bold;
 }
-.wrapper{
-  position: relative;
+.wrapper_cell {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  border-bottom: 2px solid rgb(223, 220, 220);
+}
+.wrapper_userInfo {
+  padding: 10px;
+}
+.userInfo {
+  padding: 5px;
 }
